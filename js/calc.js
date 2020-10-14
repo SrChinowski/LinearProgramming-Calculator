@@ -70,6 +70,8 @@ var myGraph = new Graph({
 //myGraph.drawDot();
 
 function solve(){
+    initCalc();
+
     if(checkBlank()) {
 
         getData();
@@ -90,6 +92,7 @@ function getZoom(){
     data.equations.forEach(eq => {
         if(max < eq.x) max = eq.x;
         if(max < eq.y) max = eq.y;
+        if(max < eq.z) max = eq.z;
     })
     n = max*1.5; 
 
@@ -121,10 +124,6 @@ function evaluteIntersections(){
     combinations.forEach(eq =>{
         eq.isArea = evalDot(eq.dot.x,eq.dot.y)
     })
-
-    combinations.forEach(eq =>{
-        if(eq.isArea) console.log(eq);
-    })
     
 }
 
@@ -143,38 +142,52 @@ function getInterseccion(x1,y1,x2,y2){
 }
 
 function evalDot(x,y){
-    var val = true;
+    var res = true; 
 
+    if(x>=0 && y>=0){
+        for(var i=0; i <data.equations.length -2 && res == true; i++){
+            switch(data.equations[i].sign){
+                case '>=': 
+                    if(((data.equations[i].x*x) + (data.equations[i].y*y)) < data.equations[i].z ){
+                        res = false
+                        return false;
+                    }
+                    break;
+                case '> =': 
+                    if(((data.equations[i].x*x) + (data.equations[i].y*y)) < data.equations[i].z ){
+                        res = false
+                        return false;
+                    }
+                    break;
+                case '≥': 
+                    if(((data.equations[i].x*x) + (data.equations[i].y*y)) < data.equations[i].z ){
+                        res = false
+                        return false;
+                    }
+                break;
+                case '≤': 
+                    if(((data.equations[i].x*x) + (data.equations[i].y*y)) > data.equations[i].z){
+                        res = false
+                        return false;
+                    }
 
-    data.equations.forEach(eq =>{
-
-        var n = eq.x*x + eq.y*y; 
-        
-        switch(eq.sign){
-            case ">=": 
-                if(n < eq.z){
-                    console.log(n +"<="+eq.z + "| DOT : "+ eq.x + " " + eq.y); 
-                    val =false;
-
-                }
-                break; 
-
-            case "<=": 
-                if(n > eq.z){
-                    console.log(n +">="+eq.z + "| DOT : "+ eq.x + " " + eq.y); 
-                    val =false;
-                }
-            break; 
+                    break;
+            }}
         }
+        else return false;
 
-    });
-
-    return val; 
+        return res;
 }
 
+
 function initCalc(){
-    myGraph.drawXAxis();
-    myGraph.drawYAxis();
+    myGraph.clear();
+    n = 6;
+    onstNumber = 2; 
+    combinations; 
+    points= [];
+    data = null;
+
 }
 
 function getDots(){
@@ -297,6 +310,7 @@ points.forEach(point => {
 }
 
 function solveProblem(){
+
     var res = [];
 
     points.forEach(dot => {
@@ -360,20 +374,27 @@ function getData(){
       if(document.getElementById("minMax").value == "Maximizar") data.goal = 'max'; 
       else data.goal = 'min'; 
   
-      data.objective.x = parseInt(document.getElementById("FXn").value) ; 
-      data.objective.y = parseInt(document.getElementById("FYn").value) ; 
+      data.objective.x = parseFloat(document.getElementById("FXn").value) ; 
+      data.objective.y = parseFloat(document.getElementById("FYn").value) ; 
   
       for(var i = 1; i<constNumber; i++){
   
         data.equations.push(
-          { "x": parseInt(document.getElementById(i+'Xn').value),  "y": parseInt(document.getElementById(i+'Yn').value),  "z": parseInt(document.getElementById(i+'ReN').value),  "sign": parseInt(document.getElementById(i+"Sym").value) }
+          { "x": parseFloat(document.getElementById(i+'Xn').value),  "y": parseFloat(document.getElementById(i+'Yn').value),  "z": parseFloat(document.getElementById(i+'ReN').value),  "sign": document.getElementById(i+"Sym").value }
         ); 
         
-    } 
+        } 
+
+        
+        data.equations.push({  "x": 1,  "y": 0,  "z": 0,  "sign": ">=" })
+        data.equations.push({  "x": 0,  "y": 1,  "z": 0,  "sign": ">=" })
+
+        console.log(data);
     return true; 
     } catch{
       return false; 
     }
+
 
 }
 
