@@ -27,9 +27,9 @@ function addConstraint(){
       "<div class='row align-items-center pl-3 my-2'>"+
       "<p class=' m-0 mr-2'>"+ constNumber + ". &nbsp; </p>"+ //Numero de Equ
       "<input type='number' class='form-control form-control-sm mr-1' id='"+constNumber+"Xn' placeholder='n' style='width: 60px;'>"+ //Coef X
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>X +</p>"+
+      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>1</sub> +</p>"+
       "<input type='number' class='form-control form-control-sm mr-1' id='"+constNumber+"Yn' placeholder='n' style='width: 60px;'>"+ //Coef Y
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>Y</p>"+
+      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>2</sub></p>"+
       "<select class='form-control form-control-sm mr-2' id='"+constNumber+"Sym' style='width: 45px;'>"+ //Simbol
       "<option>&le;</option>"+
       "<option>&ge;</option>"+
@@ -46,9 +46,9 @@ function addConstraint(){
       "<div class='row align-items-center pl-3 my-2'>"+
       "<p class=' m-0 mr-0'>"+ constNumber + ". &nbsp; </p>"+ //Numero de Equ
       "<input type='number' class='form-control form-control-sm mr-1' id='"+constNumber+"Xn' placeholder='n' style='width: 60px;'>"+ //Coef X
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>X +</p>"+
+      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>1</sub> +</p>"+
       "<input type='number' class='form-control form-control-sm mr-1' id='"+constNumber+"Yn' placeholder='n' style='width: 60px;'>"+ //Coef Y
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>Y</p>"+
+      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>2</sub></p>"+
       "<select class='form-control form-control-sm mr-2' id='"+constNumber+"Sym' style='width: 45px;'>"+ //Simbol
       "<option>&le;</option>"+
       "<option>&ge;</option>"+
