@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Signika:wght@600&display=swap');
+
+html, 
+body {
+    height: 100%;
+}
+
+
+.fade-in { 
+    animation: fadeInAnimation ease 1.5s ;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+  } 
+  
+  @keyframes fadeInAnimation { 
+    0% { 
+        transform: translateY(15%);
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+      } 
+  } 
+
+.capital{
+    font-family: 'Signika', sans-serif;
+    font-size: 25px ;
+}
+
+.btn-primary1{
+    color: white;
+    background-color: #5222D0;
+    border-color: #5222D0;
+}
+.btn-primary1:hover{
+  color: white;
+  background-color: #754ed8;
+  border-color: #754ed8;
+}
+.btn-primary1:active{
+  color: white;
+  background-color: #D0826F;
+  border-color: #D0826F;
+}
+
+.btn-primary2{
+  color: white;
+  background-color: #D0826F;
+  border-color: #D0826F;
+}
+.btn-primary2:hover{
+color: white;
+background-color: #d39180;
+border-color: #d39180;
+}
+.btn-primary2:active{
+color: white;
+background-color: #D0826F;
+border-color: #D0826F;
+}
+
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color:#5222D0;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #D0826F!important;
+}
+
+.overlay .closebtn {
+  font-size: 60px;
+}
+
+.btn-outline-primary:hover {
+  color: #fff;
+  background-color: #5222D0;
+  border-color: #5222D0;
+}  
+
+.btn-outline-primary {
+  color: #5222D0;
+  background-color: transparent;
+  border-color: #5222D0;
+}
+
+.btn-add{
+  background-color: #5222D0;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-add:hover{
+  background-color: #754ed8;
+}

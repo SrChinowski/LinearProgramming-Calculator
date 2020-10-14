@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator-LP 5000 Plus</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="d-flex flex-column h-100 " style="overflow: hidden;">
+    <nav class="navbar" style="background-color: #5222D0;">
+        <a class=" d-flex justify-content-start container py-2" href="./index.html" style="text-decoration: none; color: white; padding-left: 8px;">
+            <h1 style="font-size: 20px;"> Calculator-LP 5000 Plus </h1>
+        </a>
+    </nav>
+
+    <section id="land" class="container d-flex align-items-center" style="height: 100%;">
+        <div class="row">
+            <div class="col-5 d-flex flex-column justify-content-center fade-in">
+                <h1 class="mb-3">Calculator-LP 5000 Plus</h1>
+                <p class="mb-3" style="color: darkgray;">Están por presenciar el resultado de juntar 5 tazas de café, una buena playlist y mi habilidad para procrastinar absolutamente todo. 
+                </p>
+                
+                <div class="d-flex mt-3">
+                    <button class="btn btn-primary1 w-50 mr-1" onclick="openNav(), initCalc()">Vamo'a ver</button>
+                    <button class="btn btn-outline-primary w-50 ml-1" data-toggle="modal" data-target="#docu"> Como funciona?</button>
+                </div>
+            </div>
+            <div class="col-sm p-0 fade-in" style="overflow: hidden;">
+                <img src="/Assets/Img/land-img.svg" width="130%"/>
+            </div>
+        </div>
+    </section>
+
+    <section id="footer" class="d-flex justify-content-end mr-3" >
+        <h6 style="color: darkgray;">Hecho con &#10084; por <a target="_blank" href="https://srchinowski.github.io/CarlosLeon/">Carlos Leon</a> </h6>
+    </section>
+
+    <div class="modal fade bd-example-modal-lg" id="docu" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> <b>¿Cómo funciono?</b></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              La <b>Calculator LP-5000 Plus</b> es una calculadora diseñada para la solución de problemas de programación lineal, 
+              en donde teniendo la función y sus respectivas restricciones podremos mostrar la solución gráfica del problema con ayuda de magia negra programable (Javascript y una que otra API). 
+              <br/><br/>
+              <b> 1. Más o Menos</b> <br/>
+              Primero debes indicarme si el objetivo del problema es maximizar o minimizar. 
+              <br/><br/>
+              <b>2. Tu Función</b> <br/>
+              Tendrás que darme la función objetivo (si no ¿pues como?). 
+              <br/><br/>
+              <b>3. Ayúdame que yo te ayudaré</b> <br/>
+              Como último paso tengo que saber las restricciones del problema, máximo 10 porque me da amsiedad. 
+              <br/><br/>
+              Yo invocaré la magia negra programable por ti y podrás ver la solución de la función.  
+            
+              <div class="d-flex justify-content-center mt-3">
+                  <img src="https://media.giphy.com/media/l2JdXQwaIbHTo3sZ2/giphy.gif" alt="magica" width="300px">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div id="myNav" class="overlay " style="overflow: scroll;">
+
+        <section id="nav2" >
+            <nav class="navbar" style="background-color: #5222D0;">
+                <a class=" d-flex justify-content-start container py-2" href="./index.html"  onclick="closeNav()" style="text-decoration: none; color: white; ">
+                    <h1 style="font-size: 20px;"> Calculator-LP 5000 Plus </h1>
+                </a>
+            </nav>
+        </section>
+
+        <section id="work-land" class="container">
+            <div class="card px-5 pt-5 row justify-content-between" style="flex-direction: row;">
+                <div class="col-sm">
+                    <p>El objetivo del problema es:   
+                        <select id="minMax" class="form-control w-75 mt-2" >
+                            <option>Maximizar</option>
+                            <option>Minimizar</option>
+                        </select> 
+                    </p>
+                    <p>La funcion objetivo es:   
+                        <div class="row align-items-center pl-3 my-2">
+                            <p class=" m-0 mr-2" style="font-size: 23px;">Z =</p>
+                            <input type="number" class="form-control form-control-sm mr-1" id="FXn" placeholder="n" style="width: 60px;">
+                            <p class=" m-0 mr-2" style="font-size: 23px;">X +</p>
+                            <input type="number" class="form-control form-control-sm mr-1" id="FYn" placeholder="n" style="width: 60px;">
+                            <p class=" m-0 mr-2" style="font-size: 23px;">Y</p>
+                        </div>
+                    </p>
+                    <div id="const">
+                        <div class="row ml-1 justify-content-between align-items-center">
+                            <p class="m-0 p-0">Restricciones</p>
+                            <div onclick="addConstraint()" class="mr-5 btn-add d-flex justify-content-center align-items-center"><h4 class="m-0 p-0 mb-2" style="font-size: 30px;">+</h6></div>
+                        </div>
+                        
+                            <div class="row align-items-center pl-3 my-2">
+                                <p class=" m-0 mr-2">1. &nbsp;</p>
+                                <input type="number" class="form-control form-control-sm mr-1" id="1Xn" placeholder="n" style="width: 60px;">
+                                <p class=" m-0 mr-2" style="font-size: 23px;">X +</p>
+                                <input type="number" class="form-control form-control-sm mr-1" id="1Yn" placeholder="n" style="width: 60px;">
+                                <p class=" m-0 mr-2" style="font-size: 23px;">Y</p>
+                                <select id="1Sym" class="form-control form-control-sm mr-2" style="width: 45px;">
+                                    <option>&le;</option>
+                                    <option>&ge;</option>
+                                </select> 
+                                <input type="number" class="form-control form-control-sm mr-1" id="1ReN" placeholder="n" style="width: 60px;">
+                                
+                                
+                            </div>
+                            
+                    </div>
+                </div>
+                <div class="col-sm d-flex flex-column align-items-end">
+                    <canvas style="border: 1px solid lightgray;" id="myCanvas" width="600" height="600"></canvas>
+                    <button class="btn btn-primary2 m-2" onclick="solve()">Resolver</button>
+                </div>
+                
+                
+                
+            </div>
+        </section>
+        <div class="modal fade bd-example-modal-lg" id="doggy" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"> Ya me dio amsiedad</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                  <img src="https://ih1.redbubble.net/image.1034713274.3461/flat,750x1000,075,f.jpg" alt="doggy" width="300px">
+                  <p>Solo puedes poner <b>10</b> restricciones. </p> 
+    
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="modal fade bd-example-modal-lg" id="blank" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"> Verifica los datos</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                  <img src="https://ih1.redbubble.net/image.1034713274.3461/flat,750x1000,075,f.jpg" alt="doggy" width="300px">
+                  <p>Tienes campos  <b>vacios</b>. </p> 
+    
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade bd-example-modal-lg" id="constraints" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"> Verifica los datos</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+                  <img src="https://ih1.redbubble.net/image.1034713274.3461/flat,750x1000,075,f.jpg" alt="doggy" width="300px">
+                  <p>Debes tener al menos <b>2 restricciones.</b>. </p> 
+    
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/draw.js"></script>
+    <script src="./js/calc.js"></script>
+</body>
+</html>
