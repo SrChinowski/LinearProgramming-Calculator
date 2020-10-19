@@ -145,6 +145,9 @@ function getInterseccion(x1,y1,x2,y2){
 
 function evalDot(x,y){
     var res = true; 
+    x=x.toFixed(4);
+    y=y.toFixed(4);
+
 
     if(x>=0 && y>=0){
         for(var i=0; i <data.equations.length -2 && res == true; i++){
