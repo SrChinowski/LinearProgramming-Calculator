@@ -356,7 +356,7 @@ function solveProblem(){
          if(max.res < res.res) max = res; 
         })
  
-        document.getElementById("res-txt").innerHTML =  ("Max Z : " + data.objective.x + "X"+one.sub() + "+ " + data.objective.y + "X"+two.sub() + "= " +  max);
+        document.getElementById("res-txt").innerHTML =  ("Max Z : " + data.objective.x + "X"+one.sub() + "+ " + data.objective.y + "X"+two.sub() + "= " +  max.res);
         document.getElementById("res-txt").style.visibility = "visible"
 
         myGraph.drawEquation(function(x, x1= data.objective.x, x2 =data.objective.y, z =max.res ) {
