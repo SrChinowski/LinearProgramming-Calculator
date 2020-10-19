@@ -149,6 +149,25 @@ function Graph(config) {
 
   }
 
+  Graph.prototype.drawResDot = function(x,y, res){
+    var context = this.context;
+    context.beginPath();
+    context.arc(x*this.unitX + this.centerX, this.centerY - y*this.unitY, 3, 0, 2 * Math.PI, false);
+    context.fillStyle = '#D0826F';
+    context.fill();
+    context.lineWidth = 1;
+    context.strokeStyle = '#D0826F';
+
+
+    context.font = "15px Calibri";
+    context.textAlign = 'start';
+    context.textBaseline = 'bottom';
+    context.fillText(res, x*this.unitX + this.centerX+5, this.centerY - y*this.unitY-5);
+
+    context.stroke();
+
+  }
+
   Graph.prototype.drawEquation = function(equation, color, thickness) {
     var context = this.context;
     context.save();

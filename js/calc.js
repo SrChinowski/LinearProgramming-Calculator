@@ -4,6 +4,7 @@ var constNumber = 2;
 var combinations; 
 var points= [];
 var data = null;
+var finalRes = null; 
 
 // var data = {
 //     "objective" : {
@@ -84,6 +85,7 @@ function solve(){
         myGraph.fillArea(points);
         solveProblem();
         drawAreaDots();
+        myGraph.drawResDot(finalRes.x, finalRes.y, data.goal +": "+ finalRes.z );
     }
 }
 
@@ -324,19 +326,24 @@ function solveProblem(){
     })
 
     //console.log(res);
+    var one = "1", two = "2"; 
 
     if(data.goal == 'min'){
-       var min = res[0].res;
+       var min = res[0];
 
        res.forEach(res => {
-        if(res.res < min) min = res.res; 
+        if(res.res < min.res) min = res; 
        })
 
-       //console.log(min)
 
-       myGraph.drawEquation(function(x, x1= data.objective.x, x2 =data.objective.y, z =min ) {
+       document.getElementById("res-txt").innerHTML =  ("Min Z : " + data.objective.x + "X"+one.sub() + "+ " + data.objective.y + "X"+two.sub() + "= " + min.res);
+       document.getElementById("res-txt").style.visibility = "visible"
+
+       myGraph.drawEquation(function(x, x1= data.objective.x, x2 =data.objective.y, z =min.res ) {
         return ((z + -x1*x)/x2 );
         }, '#EC615B', 2);
+
+        finalRes = min; 
     
 
        
@@ -349,7 +356,8 @@ function solveProblem(){
          if(max < res.res) max = res.res; 
         })
  
-        //console.log(max)
+        document.getElementById("res-txt").innerHTML =  ("Max Z : " + data.objective.x + "X"+one.sub() + "+ " + data.objective.y + "X"+two.sub() + "= " +  max);
+        document.getElementById("res-txt").style.visibility = "visible"
 
         myGraph.drawEquation(function(x, x1= data.objective.x, x2 =data.objective.y, z =max ) {
             return ((z + -x1*x)/x2 );
