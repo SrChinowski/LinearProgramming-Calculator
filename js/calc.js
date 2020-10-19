@@ -85,7 +85,7 @@ function solve(){
         myGraph.fillArea(points);
         solveProblem();
         drawAreaDots();
-        myGraph.drawResDot(finalRes.x, finalRes.y, data.goal +": "+ finalRes.z );
+        myGraph.drawResDot(finalRes.x, finalRes.y, data.goal +": "+ finalRes.res );
     }
 }
 
@@ -350,19 +350,23 @@ function solveProblem(){
     }
 
     else if(data.goal == 'max'){
-        var max = res[0].res;
+        var max = res[0];
  
         res.forEach(res => {
-         if(max < res.res) max = res.res; 
+         if(max.res < res.res) max = res; 
         })
  
         document.getElementById("res-txt").innerHTML =  ("Max Z : " + data.objective.x + "X"+one.sub() + "+ " + data.objective.y + "X"+two.sub() + "= " +  max);
         document.getElementById("res-txt").style.visibility = "visible"
 
-        myGraph.drawEquation(function(x, x1= data.objective.x, x2 =data.objective.y, z =max ) {
+        myGraph.drawEquation(function(x, x1= data.objective.x, x2 =data.objective.y, z =max.res ) {
             return ((z + -x1*x)/x2 );
             }, '#EC615B', 2);
+
+            finalRes = max; 
      }
+
+     console.log(finalRes);
 }
 
 function getData(){
