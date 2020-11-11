@@ -33,7 +33,7 @@ function validateConstraints(n){
 }
 
 function initSimplex(){
-  window.location.href = "/html/simplex.html";
+  window.location.href = "https://srchinowski.github.io/LinearProgramming-Calculator/html/simplex.html";
 }
 
 function showOptions(){
