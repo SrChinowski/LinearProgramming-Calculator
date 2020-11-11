@@ -335,8 +335,8 @@ function primeraFase(matriz){
     var hacer_uno_a = matriz[sale_min][entra_max];
     hacer_uno = parseFloat(hacer_uno_a);
 
-    str_table = "<div class='d-flex flex-row w-50 ml-4 bd-highlight' align = 'left' ><br><p class='bd-highlight'>Entra X" + entra + "&nbsp;&nbsp;</p>";
-    str_table += "<p>Sale R" + sale_min + "</p></div>";
+    //str_table = "<div class='d-flex flex-row w-50 ml-4 bd-highlight' align = 'left' ><br><p class='bd-highlight'>Entra X" + entra + "&nbsp;&nbsp;</p>";
+    //str_table += "<p>Sale R" + sale_min + "</p></div>";
     document.getElementById("content").innerHTML += str_table;
 
     for (let j = 1; j <= total + 1; j++) {
@@ -468,8 +468,8 @@ function finalizarFase (matriz) {
     var hacer_uno_a = matriz[sale][entra];
     hacer_uno = parseFloat(hacer_uno_a);
 
-    str_table = "<div class='d-flex flex-row w-50 ml-4 bd-highlight' align = 'left' ><br><p class='bd-highlight'>Entra X" + entra + "&nbsp;&nbsp;</p>";
-    str_table += "<p>Sale X" + sale + "</p></div>";
+    //str_table = "<div class='d-flex flex-row w-50 ml-4 bd-highlight' align = 'left' ><br><p class='bd-highlight'>Entra X" + entra + "&nbsp;&nbsp;</p>";
+    //str_table += "<p>Sale X" + sale + "</p></div>";
     document.getElementById("content").innerHTML += str_table;
 
     for (let j = 0; j <= total - array_borrar_pos_artifi.length + 1; j++) {
