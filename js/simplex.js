@@ -153,6 +153,8 @@ function addConstraint(){
         "<input type='number' step=any class='form-control form-control-sm mr-1' id='1ReN' placeholder='n' style='width: 60px;'>"+
         "</div>";
       }
+
+      codeEq+= "<input type='number' step=any class='form-control form-control-sm mr-1' id='resultado_r0' placeholder='n' style='width: 60px;'>";
       document.getElementById('restriccs').innerHTML = codeEq;
     }
   }

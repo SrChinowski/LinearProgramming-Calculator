@@ -24,16 +24,24 @@
 
     <section id="form" class="container d-flex align-items-center card mt-4 pt-4">
         <div class="col-sm">
-            <p class="d-flex align-items-center ">El objetivo del problema es:   
-                <select id="minMax" class="form-control w-25 mt-2 ml-3" >
-                    <option>Maximizar</option>
-                    <option>Minimizar</option>
-                </select> 
-            </p>
+            <div class="d-flex w-100 align-items-center justify-content-between">
+                <span class="d-flex align-items-center ">
+                    <div style="width: 375px;"><p style="margin: 0;">El objetivo del problema es:   </p></div>
+                    <select id="minMax" class="form-control w-100 m-0" >
+                        <option>Maximizar</option>
+                        <option>Minimizar</option>
+                    </select> 
+                </span>
+                <span>
+                    <button id="add-var" class="btn btn-primary1" onclick="addVar()">Agregar Variable</button>
+                    <button class="btn btn-primary1" onclick="addConstraint()">Agregar Restriccion</button>
+                    <button class="btn btn-primary1" onclick="solve()">Resolver</button>
+                    <button class="btn btn-primary1" onclick=location.reload();>Limpiar</button>
+                </span>
+            </div>
+            
 
             <p class="d-flex align-items-center justify-content-between">La funcion objetivo es:  
-                <button id="add-var" class="btn btn-primary" onclick="addVar()">Agregar Variable</button>
-                <button id="add-var" class="btn btn-primary" onclick="solve()">Resolver</button>
             </p>
 
             <div id='functionObjetive' class="row align-items-center pl-3 my-2">
@@ -48,7 +56,6 @@
                 
                 <div class="d-flex align-items-center w-100 justify-content-between">
                     <p class="m-0">Restricciones </p>
-                    <button class="btn btn-primary" onclick="addConstraint()">Agregar Restriccion</button>
                 </div>
 
                 <div id="restriccs">
