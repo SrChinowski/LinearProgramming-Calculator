@@ -1,8 +1,21 @@
 
 var constNumber = 2; 
+var varNumber = 2; 
+var resNumber = 1;
 var evalExpresion = "";
 var evalEquiation = ''; 
 var data; 
+var flatcode;
+var codeEq = "<input type='number' step=any class='form-control form-control-sm mr-1' id='1Xn' placeholder='n' style='width: 60px;'>"+
+"<p class=' m-0 mr-2' style='font-size: 15px;'>X <sub>1</sub> +</p>"+
+"<input type='number' step=any class='form-control form-control-sm mr-1' id='1Yn' placeholder='n' style='width: 60px;'>"+
+"<p class=' m-0 mr-2' style='font-size: 15px;'>X <sub>2</sub></p>"+
+"<select id='1Sym' class='form-control form-control-sm mr-2' style='width: 45px;'>"+
+"<option>&le;</option>"+
+"<option>&ge;</option>"+
+"</select> "+
+"<input type='number' step=any class='form-control form-control-sm mr-1' id='1ReN' placeholder='n' style='width: 60px;'>"+
+"</div>"
 
 function openNav() {
   document.getElementById('myNav').style.height = '100%';
@@ -19,52 +32,16 @@ function validateConstraints(n){
   return true;
 }
 
-
-function addConstraint(){
-
-  if(constNumber < 10){
-    document.getElementById('const').insertAdjacentHTML("beforeend",
-      "<div class='row align-items-center pl-3 my-2'>"+
-      "<p class=' m-0 mr-2'>"+ constNumber + ". &nbsp; </p>"+ //Numero de Equ
-      "<input type='number' step=any class='form-control form-control-sm mr-1' id='"+constNumber+"Xn' placeholder='n' style='width: 60px;'>"+ //Coef X
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>1</sub> +</p>"+
-      "<input type='number' step=any class='form-control form-control-sm mr-1' id='"+constNumber+"Yn' placeholder='n' style='width: 60px;'>"+ //Coef Y
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>2</sub></p>"+
-      "<select class='form-control form-control-sm mr-2' id='"+constNumber+"Sym' style='width: 45px;'>"+ //Simbol
-      "<option>&le;</option>"+
-      "<option>&ge;</option>"+
-      "</select> "+
-      "<input type='number' step=any class='form-control form-control-sm mr-1' id='"+constNumber+"ReN' placeholder='n' style='width: 60px;'></input>"+ //Resultado
-      
-      "</div>"
-      );
-
-    constNumber++;
-  }
-  else if(constNumber == 10){
-    document.getElementById('const').insertAdjacentHTML("beforeend",
-      "<div class='row align-items-center pl-3 my-2'>"+
-      "<p class=' m-0 mr-0'>"+ constNumber + ". &nbsp; </p>"+ //Numero de Equ
-      "<input type='number' step=any class='form-control form-control-sm mr-1' id='"+constNumber+"Xn' placeholder='n' style='width: 60px;'>"+ //Coef X
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>1</sub> +</p>"+
-      "<input type='number' step=any class='form-control form-control-sm mr-1' id='"+constNumber+"Yn' placeholder='n' style='width: 60px;'>"+ //Coef Y
-      "<p class=' m-0 mr-2' style='font-size: 23px;'>X <sub>2</sub></p>"+
-      "<select class='form-control form-control-sm mr-2' id='"+constNumber+"Sym' style='width: 45px;'>"+ //Simbol
-      "<option>&le;</option>"+
-      "<option>&ge;</option>"+
-      "</select> "+
-      "<input type='number' step=any class='form-control form-control-sm mr-1' id='"+constNumber+"ReN' placeholder='n' style='width: 60px;'></input>"+ //Resultado
-      
-      "</div>"
-      );
-
-    constNumber++;
-  }
-  else{
-    $('#doggy').modal('show');
-    document.getElementsByClassName('modal-backdrop')[0].style.zIndex = 998;
-  }
+function initSimplex(){
+  window.location.href = "/html/simplex.html";
 }
+
+function showOptions(){
+  document.getElementById("options").style.display = "block";
+  document.getElementById("options").classList.add('d-flex');
+  document.getElementById("options").classList.add('fade-in');
+}
+
 
 // function getData(){
 //   try{

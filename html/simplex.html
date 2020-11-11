@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator-LP 5000 Plus</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../js/index.js"></script>
+    <script src="../js/simplex.js"></script>
+    
+    
+</head>
+<body>
+    <nav class="navbar" style="background-color: #5222D0;">
+        <a class=" d-flex justify-content-start container py-2" href="../index.html" style="text-decoration: none; color: white; padding-left: 8px;">
+            <h1 style="font-size: 20px;"> Calculator-LP 5000 Plus </h1>
+        </a>
+    </nav>
+
+    <section id="form" class="container d-flex align-items-center card mt-4 pt-4">
+        <div class="col-sm">
+            <p class="d-flex align-items-center ">El objetivo del problema es:   
+                <select id="minMax" class="form-control w-25 mt-2 ml-3" >
+                    <option>Maximizar</option>
+                    <option>Minimizar</option>
+                </select> 
+            </p>
+
+            <p class="d-flex align-items-center justify-content-between">La funcion objetivo es:  
+                <button id="add-var" class="btn btn-primary" onclick="addVar()">Agregar Variable</button>
+                <button id="add-var" class="btn btn-primary" onclick="solve()">Resolver</button>
+            </p>
+
+            <div id='functionObjetive' class="row align-items-center pl-3 my-2">
+                <p class=" m-0 mr-2" style="font-size: 15px;">Z =</p>
+                <input type="number" step=any  class="form-control form-control-sm mr-1" id="valor_x0" placeholder="n" style="width: 60px;">
+                <p class=" m-0 mr-2" style="font-size: 15px;">X <sub>1</sub> +</p>
+                <input type="number" step=any class="form-control form-control-sm mr-1" id="valor_x1" placeholder="n" style="width: 60px;">
+                <p class=" m-0 mr-2" style="font-size: 15px;">X <sub>2</sub></p>
+            </div>
+
+            <div id="const">
+                
+                <div class="d-flex align-items-center w-100 justify-content-between">
+                    <p class="m-0">Restricciones </p>
+                    <button class="btn btn-primary" onclick="addConstraint()">Agregar Restriccion</button>
+                </div>
+
+                <div id="restriccs">
+                    <div id='res-1' class="row align-items-center pl-3 my-2">
+                        <p class=" m-0 mr-2">1. &nbsp;</p>
+                        <input type="number" step=any class="form-control form-control-sm mr-1" id='valor_r0x0' placeholder="n" style="width: 60px;">
+                        <p class=" m-0 mr-2" style="font-size: 15px;">X <sub>1</sub> +</p>
+                        <input type="number" step=any class="form-control form-control-sm mr-1" id='valor_r0x1' placeholder="n" style="width: 60px;">
+                        <p class=" m-0 mr-2" style="font-size: 15px;">X <sub>2</sub></p>
+                        <select id="operador_r0" class="form-control form-control-sm mr-2" style="width: 45px;">
+                            <option selected value="&#60;=">&#60;=</option>
+                            <option value='>='> >= </option>
+                            <option value='='> = </option>
+                        </select> 
+                        <input type="number" step=any class="form-control form-control-sm mr-1" id="resultado_r0" placeholder="n" style="width: 60px;">
+                    </div>
+                </div>
+                    
+            </div>
+    </section>
+    <section id='content' class="card  container mt-3 d-flex justify-content-center">
+
+    </section>
+
+    
+</body>
+</html>

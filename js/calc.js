@@ -176,7 +176,7 @@ function evalDot(x,y){
                         return false;
                     }
 
-                    break;
+                    break;  
             }}
         }
         else return false;

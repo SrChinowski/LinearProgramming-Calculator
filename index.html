@@ -27,9 +27,21 @@
                 </p>
                 
                 <div class="d-flex mt-3">
-                    <button class="btn btn-primary1 w-50 mr-1" onclick="openNav(), initCalc()">Vamo'a ver</button>
+                    <button class="btn btn-primary1 w-50 mr-1" onclick="showOptions()">Vamo'a ver</button>
                     <button class="btn btn-outline-primary w-50 ml-1" data-toggle="modal" data-target="#docu"> Como funciona?</button>
                 </div>
+
+                <div id="options" class=" mt-3" style="display: none;">
+                  <div onclick="openNav(), initCalc()" style="border: 1px solid gray; cursor: pointer; border-radius: 5px;" class="btn d-flex flex-column justify-content-center align-items-center mr-2 py-2 w-50">
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/3716/3716509.svg" width="30%"  alt="">
+                    Solucion Grafica
+                  </div>
+                  <div onclick="initSimplex()" style="border: 1px solid gray; cursor: pointer; border-radius: 5px;" class="btn d-flex flex-column justify-content-center align-items-center ml-2 py-2 w-50">
+                    <img src="https://www.flaticon.com/svg/static/icons/svg/930/930208.svg" width="30%"  alt="">
+                    Metodo Simplex
+                  </div>
+                </div>
+
             </div>
             <div class="col-sm p-0 fade-in" style="overflow: hidden;">
                 <img src="./Assets/Img/land-img.svg" width="130%"/>

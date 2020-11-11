@@ -121,3 +121,8 @@ border-color: #D0826F;
 .btn-add:hover{
   background-color: #754ed8;
 }
+
+#options div:hover{
+  background-color: #754ed8;
+  color: white;
+}
